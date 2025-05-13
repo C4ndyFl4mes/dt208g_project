@@ -1,0 +1,12 @@
+<div class="container">
+    <p class="pagination-display">
+        Sida {{currentPage()}} av {{list().maxPages}}. Antal kurser: {{list().totalCourses}}
+    </p>
+    <div class="controls">
+        <button (click)="firstPage()">Sida 1</button>
+        <button (click)="prevPage()">Föregående</button>
+        <input type="number" value="{{currentPage()}}" min="1" max="{{list().maxPages}}" (input)="inputPage($event)">
+        <button (click)="nextPage()">Nästa</button>
+        <button (click)="lastPage()">Sida {{list().maxPages}}</button>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<table>
+    <thead>
+        <tr>
+            <th>Kurskod</th>
+            <th>Kursnamn</th>
+            <th>Poäng</th>
+            <th>Ämne</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (page()) {
+            @for (item of page().items; track item.courseCode) {
+                <tr>
+                    <td>{{item.courseCode}}</td>
+                    <td>{{item.courseName}}</td>
+                    <td>{{item.points}}</td>
+                    <td>{{item.subject}}</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
