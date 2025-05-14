@@ -1,6 +1,6 @@
 <div class="frame">
     <div class="table-container">
-        <app-table [page]="page"></app-table>
+        <app-table [page]="page" [parentPage]="parentPage"></app-table>
     </div>
     <app-list-controls [list]="list" [currentPage]="currentPage" (pageChanged)="onPageChanged($event)"></app-list-controls>
 </div>

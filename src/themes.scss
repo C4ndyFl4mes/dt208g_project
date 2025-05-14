@@ -1,0 +1,73 @@
+@use "sass:map";
+@use "sass:color";
+
+// Light Theme Variables:
+$li-primary-bgc: #ffffff;
+$li-primary-fgc: #222222;
+$li-table-container-bgc: #dfdfdf;
+$li-table-bgc: #eaeaea;
+$li-table-row-bgc: #dddddd;
+$li-table-row-hover-bgc: color.adjust($li-table-row-bgc, $lightness: -10%);
+
+// Dark Theme Variables:
+$da-primary-bgc: #ffffff;
+$da-primary-fgc: #222222;
+$da-table-container-bgc: #dfdfdf;
+$da-table-bgc: #4e4949;
+$da-table-row-bgc: #555555;
+$da-table-row-hover-bgc: color.adjust($da-table-row-bgc, $lightness: -10%);
+
+// Shared values for themes, mostly placeholder as template.
+$base-theme: (
+    "something": #000000
+);
+
+// Light theme
+$light-theme: (
+    primary-bgc: $li-primary-bgc,
+    primary-fgc: $li-primary-fgc,
+    table-container-bgc: $li-table-container-bgc,
+    table-bgc: $li-table-bgc,
+    table-row-bgc: $li-table-row-bgc
+);
+
+// Dark theme
+$dark-theme: (
+    primary-bgc: $da-primary-bgc,
+    primary-fgc: $da-primary-fgc,
+    table-container-bgc: $da-table-container-bgc,
+    table-bgc: $da-table-bgc,
+    table-row-bgc: $da-table-row-bgc
+);
+
+// A function to merge base with light or dark theme.
+@function deep-merge($map1, $map2) {
+    $result: $map1;
+
+    @each $key, $value in $map2 {
+        $result: map.set($result, $key, $value);
+    }
+
+    @return $result;
+}
+
+// Merge them base theme with the other themes.
+$light-theme: deep-merge($base-theme, $light-theme);
+$dark-theme: deep-merge($base-theme, $dark-theme);
+
+
+// Light (standard)
+:root {
+    @each $key, $value in $light-theme {
+        --#{$key}: #{$value};
+    }
+}
+
+// Dark if prefered, overrides light theme
+@media (prefers-color-scheme: dark) {
+    :root {
+        @each $key, $value in $dark-theme {
+            --#{$key}: #{$value};
+        }
+    }
+}

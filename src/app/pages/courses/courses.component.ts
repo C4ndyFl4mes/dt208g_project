@@ -14,6 +14,7 @@ import { Page } from '../../models/page';
   styleUrl: './courses.component.scss'
 })
 export class CoursesComponent {
+  parentPage = signal<string>("courses");
   private courses = signal<Array<Course>>([]);
   list = signal<CoursesList>({
     totalCourses: 0,
@@ -27,7 +28,7 @@ export class CoursesComponent {
   constructor(private courseService: CourseService) {
     courseService.getCourses().subscribe(data => {
       this.courses.set(data);
-      this.list.set(List.pagination(this.courses(), 20));
+      this.list.set(List.pagination(this.courses()));
       this.onPageChanged(1);
     });
   }

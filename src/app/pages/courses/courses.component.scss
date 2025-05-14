@@ -1,0 +1,19 @@
+.frame {
+    margin: 0 auto;
+    max-width: fit-content;
+}
+
+.table-container {
+    position: relative;
+
+    max-width: fit-content;
+    height: 50rem;
+
+    overflow-x: auto;
+    overflow-y: scroll;
+
+    background-color: var(--table-container-bgc);
+}
+
+
+

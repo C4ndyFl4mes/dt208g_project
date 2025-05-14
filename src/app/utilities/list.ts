@@ -3,7 +3,7 @@ import { CoursesList } from "../models/courses-list";
 import { Page } from "../models/page";
 
 export class List {
-    public static pagination(courses: Array<Course>, coursesPerPage: number = 20): CoursesList {
+    public static pagination(courses: Array<Course>, coursesPerPage: number = 30): CoursesList {
         const pages: Array<Page> = [];
         const totalCourses: number = courses.length;
         const maxPages: number = Math.ceil(totalCourses / coursesPerPage);

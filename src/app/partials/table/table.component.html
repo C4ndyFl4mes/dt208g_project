@@ -1,20 +1,32 @@
 <table>
     <thead>
-        <tr>
+        <tr class="main-head">
             <th>Kurskod</th>
             <th>Kursnamn</th>
             <th>Poäng</th>
             <th>Ämne</th>
+            <th>Lägg till</th>
         </tr>
     </thead>
     <tbody>
         @if (page()) {
             @for (item of page().items; track item.courseCode) {
-                <tr>
+                <tr class="main-row" (click)="openPlan(item.syllabus)" title="Öppna kursplan för {{item.courseName}}">
                     <td>{{item.courseCode}}</td>
                     <td>{{item.courseName}}</td>
                     <td>{{item.points}}</td>
                     <td>{{item.subject}}</td>
+                    <td> 
+                        @if (framework.isSelected(item)) {
+                            @if (parentPage() === "courses") {
+                                <button class="button selected">Tillagd</button>
+                            } @else {
+                                <button class="button remove">Ta bort</button>
+                            }
+                        } @else {
+                            <button (click)="$event.stopPropagation(); framework.add(item)" class="button select">Lägg till</button>
+                        }
+                    </td>
                 </tr>
             }
         }
