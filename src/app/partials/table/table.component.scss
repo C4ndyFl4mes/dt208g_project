@@ -53,6 +53,9 @@ th:nth-child(5), td:nth-child(5) {
     background-color: var(--table-row-hover-bgc);
 }
 
+.empty {
+    text-align: center;
+}
 
 @media screen and (min-width: 768px) {
     table {

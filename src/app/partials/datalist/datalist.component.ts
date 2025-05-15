@@ -11,14 +11,16 @@ export class DatalistComponent {
   @Input() items!: Array<string>; // "föremål" i listan.
   @Input() startingValue!: string; // Startvärde.
   @Input() labelText!: string; // Label.
+  @Input() readOnly!: boolean;
+
 
   @Output() value = new EventEmitter<string>(); // Output som används för att skicka till moderelementet.
 
   isOpen = signal<boolean>(false); // Håller koll på listan visas eller inte.
-
   displayItems = signal<Array<string>>([]); // De föremål som ska visas, de kan vara filtrerade efter sökning.
 
   currentValue = signal<string>(""); // Vad det är för värde just nu.
+  typedValue = signal<string>(''); // Vad användaren skriver i för värde.
 
   focusedIndex: number = -1; // Håller reda på vilket föremål är fokuserad just nu.
 
@@ -27,7 +29,8 @@ export class DatalistComponent {
   @ViewChildren('itemEl') itemElements!: QueryList<ElementRef>; // Används vid att alltid visa föremålet i listan, även om det behövs skrollas.
 
   ngOnInit(): void {
-    this.currentValue.set(this.startingValue); // Sätter startvärde.
+    this.typedValue.set(this.startingValue); // Sätter startvärde.
+    this.value.emit(this.typedValue()); // Ser till att det alltid är ett värde som skickas vid initiering.
   }
 
   /**
@@ -42,6 +45,7 @@ export class DatalistComponent {
    * Gömmer dropdown meny.
    */
   close(): void {
+    // this.focusedIndex = -1;
     this.isOpen.set(false);
   }
 
@@ -54,6 +58,7 @@ export class DatalistComponent {
     const li = keyEvent.target as HTMLElement;
     if (keyEvent.key == " " || keyEvent.key == "Enter") {
       this.currentValue.set(item);
+      this.typedValue.set(item);
       this.value.emit(item);
 
       li.blur();
@@ -70,6 +75,7 @@ export class DatalistComponent {
   selectClick(item: string, event: Event): void {
     const li = event.target as HTMLElement;
     this.currentValue.set(item);
+    this.typedValue.set(item);
     this.value.emit(item);
 
     li.blur();
@@ -82,10 +88,8 @@ export class DatalistComponent {
    */
   search(event: Event): void {
     const input = event.target as HTMLInputElement;
+    this.typedValue.set(input.value);
     this.displayItems.set(this.items.filter(item => item.toLocaleLowerCase().includes(input.value.toLocaleLowerCase())));
-    if (input.value != "") {
-      this.value.emit(input.value);
-    }
   }
 
   /**
@@ -102,12 +106,13 @@ export class DatalistComponent {
       event.preventDefault();
       this.focusedIndex = (this.focusedIndex - 1 + items.length) % items.length; // Fallande, modulus gör att går om, -1 blir items.length - 1.
       this.scrollToFocusedItem();
+    } else if (event.key === "Enter" || event.key === "Space") {
+      this.typedValue.set(items[this.focusedIndex]);
     }
 
     // Ser till att indexet finns och därefter anropar select.
     if (this.focusedIndex >= 0 && this.focusedIndex < items.length) {
       this.select(items[this.focusedIndex], event);
-      this.currentValue.set(items[this.focusedIndex]);
     }
   }
 

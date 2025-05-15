@@ -6,16 +6,19 @@ import { ListControlsComponent } from '../../partials/list-controls/list-control
 import { CoursesList } from '../../models/courses-list';
 import { TableComponent } from '../../partials/table/table.component';
 import { Page } from '../../models/page';
+import { DataControlsComponent } from '../../partials/data-controls/data-controls.component';
 
 @Component({
   selector: 'app-courses',
-  imports: [ListControlsComponent, TableComponent],
+  imports: [ListControlsComponent, TableComponent, DataControlsComponent],
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.scss'
 })
 export class CoursesComponent {
   parentPage = signal<string>("courses"); // Används för att enkelt bestämma hur knappen tillagd/ta bort ska se ut beroende på vad det är för sida. Kurslistan har "Tillagd" medans ramschema har "Ta bort."
   courses = signal<Array<Course>>([]); // Deklarerar en tom array av kurser.
+  coursesOnDisplay = signal<Array<Course>>([]);
+  subjects = signal<Array<string>>([]);
   // Deklarerar listan:
   list = signal<CoursesList>({
     totalCourses: 0,
@@ -31,7 +34,10 @@ export class CoursesComponent {
   constructor(private courseService: CourseService) {
     courseService.getCourses().subscribe(data => {
       this.courses.set(data);
-      this.list.set(List.pagination(this.courses()));
+      this.coursesOnDisplay.set(data);
+      const uniqueSubjects = Array.from(new Set(this.courses().map(course => course.subject)));
+      this.subjects.set(["Alla", ...uniqueSubjects]);
+      this.list.set(List.pagination(this.coursesOnDisplay()));
       this.onPageChanged(1);
     });
   }
@@ -55,7 +61,16 @@ export class CoursesComponent {
    */
   onItemsPerPageChanged(itemsPerPage: number): void {
     this.itemsPerPage.set(itemsPerPage);
-    this.list.set(List.pagination(this.courses(), this.itemsPerPage()));
+    this.list.set(List.pagination(this.coursesOnDisplay(), this.itemsPerPage()));
     this.onPageChanged(1);
   }
+
+  filter(courses: Array<Course>): void {
+    // console.log(courses[0]);
+    this.coursesOnDisplay.set(courses);
+    this.list.set(List.pagination(this.coursesOnDisplay()));
+    this.onPageChanged(1);
+  }
+
+  
 }

@@ -26,4 +26,18 @@ export class List {
             pages: pages
         };
     }
+
+    public static filterCourses(courses: Array<Course>, query: string, subject: string = "Alla"): Array<Course> {
+        const term = query.toLocaleLowerCase();
+        return courses.filter(course => {
+            const matchesQuery =
+                course.courseCode.toLocaleLowerCase().includes(term) ||
+                course.courseName.toLocaleLowerCase().includes(term);
+
+            const matchesSubject = subject === "Alla" || course.subject.toLocaleLowerCase() === subject.toLocaleLowerCase();
+
+            return matchesQuery && matchesSubject;
+        });
+    }
+
 }

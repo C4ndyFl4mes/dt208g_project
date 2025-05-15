@@ -15,8 +15,8 @@ $li-selected-item-datalist-bgc: color.adjust($li-inputfield-bgc, $lightness: -10
 $da-primary-bgc: #ffffff;
 $da-primary-fgc: #222222;
 $da-table-container-bgc: #dfdfdf;
-$da-table-bgc: #4e4949;
-$da-table-row-bgc: #555555;
+$da-table-bgc: #eaeaea;
+$da-table-row-bgc: #dddddd;
 $da-table-row-hover-bgc: color.adjust($da-table-row-bgc, $lightness: -10%);
 $da-inputfield-bgc: #cccccc;
 $da-selected-item-datalist-bgc: color.adjust($da-inputfield-bgc, $lightness: -10%);

@@ -6,7 +6,7 @@
         <button (click)="firstPage()">Sida 1</button>
         <button (click)="prevPage()">Föregående</button>
         <div class="datalist">
-            <app-datalist [items]="itemsPerPageSelections" [startingValue]="'30'" [labelText]="'Kurser per sida:'" (value)="onItemsPerPageSelection($event)"></app-datalist>
+            <app-datalist [items]="itemsPerPageSelections" [startingValue]="'30'" [labelText]="'Kurser per sida:'" [readOnly]="true" (value)="onItemsPerPageSelection($event)"></app-datalist>
         </div>
         <button (click)="nextPage()">Nästa</button>
         <button (click)="lastPage()">Sida {{list().maxPages}}</button>

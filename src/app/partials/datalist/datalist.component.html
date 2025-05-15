@@ -1,9 +1,9 @@
 <div class="container">
     <label for="datalist">{{labelText}}</label>
-    <input #datalist type="text" (focus)="open()" (input)="search($event)"  (keydown)="navigation($event)" (click)="open()" (blur)="handleBlur()" value="{{currentValue()}}">
+    <input #datalist type="text" (focus)="open()" (input)="search($event)" [readOnly]="readOnly"  (keydown)="navigation($event)" (click)="open()" (blur)="handleBlur()" value="{{typedValue()}}">
     <ul class="dropdown" [class]="isOpen() ? 'open' : 'closed'">
         @for (item of displayItems(); track $index) {
-            <li #itemEl class="listitem" (mousedown)="isClickingItem = true" (click)="selectClick(item, $event)" (focus)="open()" (mouseenter)="open()"  (mouseenter)="focusedIndex = $index"
+            <li #itemEl class="listitem" (mousedown)="isClickingItem = true" (click)="selectClick(item, $event)" (focus)="open()" (mouseenter)="focusedIndex = $index"
       [class.focused]="focusedIndex === $index">{{item}}</li>
         }
     </ul>

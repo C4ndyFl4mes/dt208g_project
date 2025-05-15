@@ -1,0 +1,9 @@
+<div class="container">
+    <label>
+        <span>Sök kurs:</span>
+        <input type="text" (input)="filter($event)">
+    </label>
+    <div class="datalist">
+        <app-datalist [labelText]="'Ämne:'" [items]="items()" [startingValue]="'Alla'" [readOnly]="false" (value)="setSubject($event)"></app-datalist>
+    </div>
+</div>

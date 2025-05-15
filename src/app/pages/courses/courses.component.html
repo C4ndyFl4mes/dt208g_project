@@ -1,6 +1,7 @@
 <div class="frame">
+    <app-data-controls [items]="subjects" [courses]="courses" (onFilter)="filter($event)"></app-data-controls>
     <div class="table-container">
-        <app-table [page]="page" [parentPage]="parentPage"></app-table>
+        <app-table [page]="page" [parentPage]="parentPage" [coursesOnDisplay]="coursesOnDisplay"></app-table>
     </div>
     <app-list-controls [list]="list" [currentPage]="currentPage" (pageChanged)="onPageChanged($event)" (itemsPerPageChanged)="onItemsPerPageChanged($event)"></app-list-controls>
 </div>

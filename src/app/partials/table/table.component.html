@@ -16,7 +16,12 @@
     </thead>
     <tbody>
         @if (page()) {
-            @for (item of page().items; track item.courseCode) {
+            @if (coursesOnDisplay().length === 0) {
+            <tr>
+                <td colspan="5" class="empty">Hittade inga kurser utifrån kriterierna.</td>
+            </tr>
+            } @else {
+                @for (item of page().items; track item.courseCode) {
                 <tr class="main-row" (click)="openPlan(item.syllabus)" title="Öppna kursplan för {{item.courseName}}">
                     <td>{{item.courseCode}}</td>
                     <td>{{item.courseName}}</td>
@@ -35,6 +40,8 @@
                     </td>
                 </tr>
             }
+            }
+            
         }
     </tbody>
 </table>
