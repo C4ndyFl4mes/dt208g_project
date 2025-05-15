@@ -1,6 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import 'themes';
+
+$roboto: 'Roboto', Helvetica, Arial, sans-serif;
 
 body {
     margin: 0;
+    font-family: $roboto;
+    min-width: 310px;
+}
+
+input, button {
+    font-family: $roboto;
+    font-size: 1rem;
+}
+
+button {
+    white-space: nowrap;
+    cursor: pointer;
 }

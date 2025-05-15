@@ -1,6 +1,6 @@
 table {
-    min-width: 800px;
-
+    min-width: 1000px;
+    // width: 10rem;
     border-collapse: collapse;
     table-layout:fixed;
 
@@ -24,6 +24,7 @@ table {
     background-color: var(--table-bgc);
 }
 
+// Kolumner: kurskod, (inte kursnamn), poäng, ämne och lägg till / ta bort.
 th:nth-child(1), td:nth-child(1) {
     width: 4rem;
 }
@@ -55,7 +56,9 @@ th:nth-child(5), td:nth-child(5) {
 
 @media screen and (min-width: 768px) {
     table {
-        min-width: 65vw;
+        width: 70vw; // Change the size of the table. Personal Note: there's one in list-controls.component too.
+        // min-width: 75vw;
+        // max-width: 75vw;
     }
     th:nth-child(4), td:nth-child(4) {
         width: 20rem;

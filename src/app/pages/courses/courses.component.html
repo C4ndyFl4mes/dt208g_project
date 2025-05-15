@@ -2,5 +2,5 @@
     <div class="table-container">
         <app-table [page]="page" [parentPage]="parentPage"></app-table>
     </div>
-    <app-list-controls [list]="list" [currentPage]="currentPage" (pageChanged)="onPageChanged($event)"></app-list-controls>
+    <app-list-controls [list]="list" [currentPage]="currentPage" (pageChanged)="onPageChanged($event)" (itemsPerPageChanged)="onItemsPerPageChanged($event)"></app-list-controls>
 </div>

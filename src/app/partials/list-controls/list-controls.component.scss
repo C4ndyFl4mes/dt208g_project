@@ -1,0 +1,30 @@
+.container {
+    max-width: 500px; // Change the size of the table. Personal Note: there's one in table.component too.
+    margin: 0 auto;
+}
+.pagination-display {
+    padding: 1rem;
+    text-align: center;
+}
+.controls {
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    row-gap: 1rem;
+}
+.datalist {
+    grid-area: 2/2/3/4;
+
+    width: auto;
+    min-width: auto;
+}
+
+// @media screen and (max-width: 800px) {
+//     .controls {
+//         grid-template-columns: 1fr 1fr 1fr 1fr;
+//     }
+//     .datalist {
+//     }
+// }

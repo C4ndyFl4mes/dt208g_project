@@ -8,6 +8,8 @@ $li-table-container-bgc: #dfdfdf;
 $li-table-bgc: #eaeaea;
 $li-table-row-bgc: #dddddd;
 $li-table-row-hover-bgc: color.adjust($li-table-row-bgc, $lightness: -10%);
+$li-inputfield-bgc: #cccccc;
+$li-selected-item-datalist-bgc: color.adjust($li-inputfield-bgc, $lightness: -10%);
 
 // Dark Theme Variables:
 $da-primary-bgc: #ffffff;
@@ -16,6 +18,8 @@ $da-table-container-bgc: #dfdfdf;
 $da-table-bgc: #4e4949;
 $da-table-row-bgc: #555555;
 $da-table-row-hover-bgc: color.adjust($da-table-row-bgc, $lightness: -10%);
+$da-inputfield-bgc: #cccccc;
+$da-selected-item-datalist-bgc: color.adjust($da-inputfield-bgc, $lightness: -10%);
 
 // Shared values for themes, mostly placeholder as template.
 $base-theme: (
@@ -28,7 +32,9 @@ $light-theme: (
     primary-fgc: $li-primary-fgc,
     table-container-bgc: $li-table-container-bgc,
     table-bgc: $li-table-bgc,
-    table-row-bgc: $li-table-row-bgc
+    table-row-bgc: $li-table-row-bgc,
+    inputfield-bgc: $li-inputfield-bgc,
+    selected-item-datalist-bgc: $li-selected-item-datalist-bgc
 );
 
 // Dark theme
@@ -37,7 +43,9 @@ $dark-theme: (
     primary-fgc: $da-primary-fgc,
     table-container-bgc: $da-table-container-bgc,
     table-bgc: $da-table-bgc,
-    table-row-bgc: $da-table-row-bgc
+    table-row-bgc: $da-table-row-bgc,
+    inputfield-bgc: $da-inputfield-bgc,
+    selected-item-datalist-bgc: $da-selected-item-datalist-bgc
 );
 
 // A function to merge base with light or dark theme.

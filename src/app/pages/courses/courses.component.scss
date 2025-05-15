@@ -1,12 +1,17 @@
 .frame {
     margin: 0 auto;
     max-width: fit-content;
+   
 }
 
 .table-container {
     position: relative;
 
     max-width: fit-content;
+    width: 100%;
+    // min-width: 70vw;
+    // max-width: 80vw;
+    
     height: 50rem;
 
     overflow-x: auto;

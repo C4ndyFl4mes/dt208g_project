@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, Output, Signal} from '@angular/core';
+import { Component, EventEmitter, Input, Output, signal, Signal} from '@angular/core';
 import { CoursesList } from '../../models/courses-list';
+import { DatalistComponent } from '../datalist/datalist.component';
 
 @Component({
   selector: 'app-list-controls',
-  imports: [],
+  imports: [DatalistComponent],
   templateUrl: './list-controls.component.html',
   styleUrl: './list-controls.component.scss'
 })
@@ -12,11 +13,28 @@ export class ListControlsComponent {
   @Input() currentPage!: Signal<number>;
 
   @Output() pageChanged = new EventEmitter<number>();
+  @Output() itemsPerPageChanged = new EventEmitter<number>();
 
+  itemsPerPageSelections: Array<string> = ["5", "10", "20", "30", "50", "100"];
+
+  /**
+   * Skickar kurser per sida vidare till moderelementet courses.component.ts
+   * @param itemsPerPage - kurser per sida.
+   */
+  onItemsPerPageSelection(itemsPerPage: string): void {
+    this.itemsPerPageChanged.emit(Number(itemsPerPage));
+  }
+  
+  /**
+   * Går direkt till första sidan.
+   */
   public firstPage(): void {
     this.pageChanged.emit(1);
   }
 
+  /**
+   * Föregående sida. Enkel if-sats för att gå över till sista sidan efter första sidan.
+   */
   public prevPage(): void {
     const newPage = this.currentPage() - 1;
     const maxPages = this.list().maxPages;
@@ -28,22 +46,9 @@ export class ListControlsComponent {
     }
   }
 
-  public inputPage(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    const value = Number(input.value);
-    const maxPages = this.list().maxPages;
-
-    if (value <= maxPages && value > 0) {
-      this.pageChanged.emit(value);
-    } else if (value < 0) {
-      this.pageChanged.emit(1);
-      input.value = "1";
-    } else if (value > maxPages) {
-      this.pageChanged.emit(maxPages);
-      input.value = String(maxPages);
-    }
-  }
-
+  /**
+   * Nästa sida. Enkel if-sats för att gå över till första sidan efter sista sidan.
+   */
   public nextPage(): void {
     const newPage = this.currentPage() + 1;
     const maxPages = this.list().maxPages;
@@ -55,6 +60,9 @@ export class ListControlsComponent {
     }
   }
 
+  /**
+   * Går direkt till sista sidan.
+   */
   public lastPage(): void {
     this.pageChanged.emit(this.list().maxPages);
   }

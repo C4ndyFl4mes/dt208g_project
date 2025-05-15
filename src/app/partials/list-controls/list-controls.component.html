@@ -5,7 +5,9 @@
     <div class="controls">
         <button (click)="firstPage()">Sida 1</button>
         <button (click)="prevPage()">Föregående</button>
-        <input type="number" value="{{currentPage()}}" min="1" max="{{list().maxPages}}" (input)="inputPage($event)">
+        <div class="datalist">
+            <app-datalist [items]="itemsPerPageSelections" [startingValue]="'30'" [labelText]="'Kurser per sida:'" (value)="onItemsPerPageSelection($event)"></app-datalist>
+        </div>
         <button (click)="nextPage()">Nästa</button>
         <button (click)="lastPage()">Sida {{list().maxPages}}</button>
     </div>

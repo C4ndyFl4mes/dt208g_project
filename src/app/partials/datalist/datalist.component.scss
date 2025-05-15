@@ -1,0 +1,70 @@
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+// The inputfield.
+input {
+    width: inherit;
+    height: 1.5rem;
+    background-color: var(--inputfield-bgc);
+    
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+// The list.
+.dropdown {
+    position: absolute;
+    top: 3.05rem;
+    z-index: 2;
+    background-color: var(--inputfield-bgc);
+    width: inherit;
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    
+    padding: 0.5rem;
+
+    overflow-y: auto;
+    height: fit-content;
+    max-height: 20rem;
+}
+
+.dropdown::-webkit-scrollbar {
+    display: none;
+}
+
+.open {
+    display: flex;
+}
+
+.closed {
+    display: none;
+}
+
+
+.dropdown:has(li:focus) {
+    display: flex;
+}
+
+.listitem {
+    padding: 0.5rem;
+}
+
+.focused {
+    background-color: var(--selected-item-datalist-bgc)
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        max-width: 200px;
+    }
+}
