@@ -1,10 +1,62 @@
 <table>
     <thead>
         <tr class="main-head">
-            <th>Kurskod</th>
-            <th>Kursnamn</th>
-            <th>Poäng</th>
-            <th>Ämne</th>
+            <th tabindex="0" (click)="sortBy('courseCode')">
+                <div class="sorting">
+                    <span>Kurskod</span>
+                    <span>
+                        @if (codeState() === "none") {
+                            -
+                        } @else if (codeState() === "ascending") {
+                            <i class="fa-solid fa-chevron-up"></i>
+                        } @else if (codeState() === "descending") {
+                            <i class="fa-solid fa-chevron-down"></i>
+                        }
+                    </span>
+                </div>
+            </th>
+            <th tabindex="0" (click)="sortBy('courseName')">
+                <div class="sorting">
+                <span>Kursnamn</span>
+                <span>
+                    @if (nameState() === "none") {
+                        -
+                    } @else if (nameState() === "ascending") {
+                        <i class="fa-solid fa-chevron-up"></i>
+                    } @else if (nameState() === "descending") {
+                        <i class="fa-solid fa-chevron-down"></i>
+                    }
+                </span>
+                </div>
+            </th>
+            <th tabindex="0" (click)="sortBy('points')">
+                <div class="sorting">
+                    <span>Poäng</span>
+                    <span>
+                        @if (pointsState() === "none") {
+                            -
+                        } @else if (pointsState() === "ascending") {
+                            <i class="fa-solid fa-chevron-up"></i>
+                        } @else if (pointsState() === "descending") {
+                            <i class="fa-solid fa-chevron-down"></i>
+                        }
+                    </span>
+                </div>
+            </th>
+            <th tabindex="0" (click)="sortBy('subject')">
+                <div class="sorting">
+                    <span>Ämne</span>
+                    <span>
+                        @if (subjectState() === "none") {
+                            -
+                        } @else if (subjectState() === "ascending") {
+                            <i class="fa-solid fa-chevron-up"></i>
+                        } @else if (subjectState() === "descending") {
+                            <i class="fa-solid fa-chevron-down"></i>
+                        }
+                    </span>
+                </div>
+            </th>
             <th>
                  @if (parentPage() === "courses") {
                     Lägg till
@@ -21,7 +73,7 @@
                 <td colspan="5" class="empty">Hittade inga kurser utifrån kriterierna.</td>
             </tr>
             } @else {
-                @for (item of page().items; track item.courseCode) {
+                @for (item of page().items; track $index) {
                 <tr class="main-row" (click)="openPlan(item.syllabus)" title="Öppna kursplan för {{item.courseName}}">
                     <td>{{item.courseCode}}</td>
                     <td>{{item.courseName}}</td>

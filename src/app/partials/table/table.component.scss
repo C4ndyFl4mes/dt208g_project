@@ -11,6 +11,10 @@ table {
         padding-left: 1rem;
         padding-right: 1rem;
         text-align: left;
+        
+        background-color: white;
+        cursor: pointer;
+        user-select: none;
     }
     td {
         height: 3rem;
@@ -55,6 +59,21 @@ th:nth-child(5), td:nth-child(5) {
 
 .empty {
     text-align: center;
+}
+
+.sorting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sorting-button {
+    // font-size: 0.8rem;
+    font-weight: bold;
+    padding-right: 0.5rem;
+    width: 4rem;
+    background-color: transparent;
+    border: none;
+    text-align: left;
 }
 
 @media screen and (min-width: 768px) {
