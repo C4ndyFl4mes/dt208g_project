@@ -1,8 +1,9 @@
 .container {
     position: relative;
     width: 100%;
+    min-width: 100%;
     max-width: 300px;
-    margin: 0 auto;
+    // margin: 0 auto;
 }
 
 // The inputfield.
@@ -22,6 +23,7 @@ input {
     z-index: 10;
     background-color: var(--inputfield-bgc);
     width: inherit;
+    min-width: inherit;
     display: none;
     list-style: none;
     margin: 0;
@@ -34,13 +36,11 @@ input {
     padding: 0.5rem;
 
     overflow-y: auto;
+    overflow-x: hidden;
     height: fit-content;
-    max-height: 20rem;
+    max-height: 15vh;
 }
 
-.dropdown::-webkit-scrollbar {
-    display: none;
-}
 
 .open {
     display: flex;
@@ -57,6 +57,8 @@ input {
 
 .listitem {
     padding: 0.5rem;
+    user-select: none;
+    cursor: pointer;
 }
 
 .focused {

@@ -1,7 +1,7 @@
 <table>
     <thead>
         <tr class="main-head">
-            <th tabindex="0" (click)="sortBy('courseCode')">
+            <th tabindex="0" (click)="sortBy('courseCode')" (keydown)="keyboardSort($event, 'courseCode')">
                 <div class="sorting">
                     <span>Kurskod</span>
                     <span>
@@ -15,7 +15,7 @@
                     </span>
                 </div>
             </th>
-            <th tabindex="0" (click)="sortBy('courseName')">
+            <th tabindex="0" (click)="sortBy('courseName')" (keydown)="keyboardSort($event, 'courseName')">
                 <div class="sorting">
                 <span>Kursnamn</span>
                 <span>
@@ -29,7 +29,7 @@
                 </span>
                 </div>
             </th>
-            <th tabindex="0" (click)="sortBy('points')">
+            <th tabindex="0" (click)="sortBy('points')" (keydown)="keyboardSort($event, 'points')">
                 <div class="sorting">
                     <span>Poäng</span>
                     <span>
@@ -43,7 +43,7 @@
                     </span>
                 </div>
             </th>
-            <th tabindex="0" (click)="sortBy('subject')">
+            <th tabindex="0" (click)="sortBy('subject')" (keydown)="keyboardSort($event, 'subject')">
                 <div class="sorting">
                     <span>Ämne</span>
                     <span>

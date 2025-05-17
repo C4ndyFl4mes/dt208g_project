@@ -83,6 +83,16 @@ export class TableComponent {
     }
 
   }
+  /**
+   * Ser till att sortering kan nås med Enter.
+   * @param event - för att veta vilken knapp som trycktes ned.
+   * @param column - vilken kolumn det handlar om.
+   */
+  keyboardSort(event: KeyboardEvent, column: keyof Course): void {
+    if (event.key === "Enter") {
+      this.sortBy(column);
+    }
+  }
 
   /**
    * Avgör vilken kolumn och vilken riktning sorteringen ska utföras.

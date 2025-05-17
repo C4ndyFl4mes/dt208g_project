@@ -1,0 +1,13 @@
+<div class="navigation-container">
+    <button (click)="toggleMenu()" class="button">Meny</button>
+    <nav #menuNAV>
+        <ul>
+            <li>
+                <a routerLink="/courses" routerLinkActive="active" (click)="delay()">Kurser</a>
+            </li>
+            <li>
+                <a routerLink="/framework" routerLinkActive="active" (click)="delay()">Ramschema</a>
+            </li>
+        </ul>
+    </nav>
+</div>
