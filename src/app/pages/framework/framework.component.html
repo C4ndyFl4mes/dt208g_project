@@ -1,1 +1,6 @@
-<p>framework works!</p>
+<h2>Ramschema</h2>
+<div class="container">
+    <div class="table-container">
+        <app-table [page]="page" [parentPage]="parentPage" [coursesOnDisplay]="coursesOnDisplay" (sortRequested)="sort($event)" (removed)="removing($event)"></app-table>
+    </div>
+</div>

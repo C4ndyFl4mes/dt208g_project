@@ -70,7 +70,11 @@
         @if (page()) {
             @if (coursesOnDisplay().length === 0) {
             <tr>
-                <td colspan="5" class="empty">Hittade inga kurser utifrån kriterierna.</td>
+                @if (parentPage() === "courses") {
+                    <td colspan="5" class="empty">Hittade inga kurser utifrån kriterierna.</td>
+                } @else {
+                    <td colspan="5" class="empty">Ditt ramschema är tomt.</td>
+                }
             </tr>
             } @else {
                 @for (item of page().items; track $index) {
@@ -84,7 +88,7 @@
                             @if (parentPage() === "courses") {
                                 <button class="button selected" title="{{item.courseName}} är redan tillagd!">Tillagd</button>
                             } @else {
-                                <button class="button remove" title="Ta bort {{item.courseName}}">Ta bort</button>
+                                <button (click)="$event.stopPropagation(); remove(item)" class="button remove" title="Ta bort {{item.courseName}}">Ta bort</button>
                             }
                         } @else {
                             <button (click)="$event.stopPropagation(); framework.add(item)" class="button select" title="Lägg till {{item.courseName}}">Lägg till</button>
@@ -94,6 +98,10 @@
             }
             }
             
+        } @else if(parentPage() === "framework") {
+            <tr>
+                <td colspan="5" class="empty">Ditt ramschema är tomt.</td>
+            </tr>
         }
     </tbody>
 </table>

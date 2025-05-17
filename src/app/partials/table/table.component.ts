@@ -23,11 +23,20 @@ export class TableComponent {
   subjectState = signal(this.sortingStates[0]);
 
   @Output() sortRequested = new EventEmitter<Sorting>();
+  @Output() removed = new EventEmitter<Array<Course>>();
 
   constructor(public framework: FrameworkService) { }
 
   openPlan(link: string): void {
     window.open(link, "_blank");
+  }
+
+  /**
+   * Skickar en uppdatering av kurser till ramschemat.
+   * @param item den kurs som ska raderas.
+   */
+  remove(item: Course): void {
+    this.removed.emit(this.framework.remove(item));
   }
 
   /**
