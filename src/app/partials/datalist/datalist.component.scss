@@ -14,6 +14,12 @@ input {
     
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+    
+}
+
+input:has(+.open) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 // The list.
@@ -29,9 +35,9 @@ input {
     margin: 0;
     padding: 0;
     flex-direction: column;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-    border-bottom: 2px solid black;
+    border-left: 2px solid var(--button-border-c);
+    border-right: 2px solid var(--button-border-c);
+    border-bottom: 2px solid var(--button-border-c);
     
     padding: 0.5rem;
 

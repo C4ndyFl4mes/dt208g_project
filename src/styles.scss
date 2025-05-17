@@ -1,20 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import 'themes';
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import "themes";
 
-$roboto: 'Roboto', Helvetica, Arial, sans-serif;
+$roboto: "Roboto", Helvetica, Arial, sans-serif;
 
 body {
     margin: 0;
     font-family: $roboto;
-    // min-width: 310px;
+    background-color: var(--primary-bgc);
+    color: var(--primary-fgc);
 }
 h2 {
-    margin: 0 auto;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
-input, button {
+input,
+button {
     font-family: $roboto;
     font-size: 1rem;
+    color: var(--primary-fgc);
+    outline: var(--button-border-c);
 }
 
 button {
@@ -24,5 +29,76 @@ button {
 
 input {
     background-color: var(--inputfield-bgc);
-     height: 1.5rem;
+    border-top: 2px groove var(--button-border-c);
+    border-left: 2px groove var(--button-border-c);
+    border-bottom: 2px ridge var(--button-border-c);
+    border-right: 2px ridge var(--button-border-c);
+
+    border-radius: 10px;
+    height: 1.5rem;
+}
+
+.selection-button {
+    width: 5rem;
+    margin: 1rem;
+    padding: 0.5rem;
+
+    border-top: 4px groove var(--button-border-c);
+    border-left: 4px groove var(--button-border-c);
+    border-bottom: 4px ridge var(--button-border-c);
+    border-right: 4px ridge var(--button-border-c);
+    border-radius: 10px;
+    background-color: var(--button-bgc);
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+        background-color: var(--button-hover-bgc);
+        border-color: var(--button-border-hover-c);
+    }
+    &:active {
+        background-color: var(--button-active-bgc);
+        border-color: var(--button-border-active-c);
+    }
+}
+
+.pagination-button {
+    background-color: var(--button-bgc);
+    transition: background-color 0.2s ease-in-out;
+    // border: 2px ridge black;
+    &:first-child {
+        border-top: 4px groove var(--button-border-c);
+        border-left: 4px groove var(--button-border-c);
+        border-bottom: 4px ridge var(--button-border-c);
+        border-right: 0;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    &:nth-child(2) {
+        border-top: 4px groove var(--button-border-c);
+        border-left: 0;
+        border-bottom: 4px ridge var(--button-border-c);
+        border-right: 0;
+    }
+    &:nth-child(4) {
+        border-top: 4px groove var(--button-border-c);
+        border-left: 0;
+        border-bottom: 4px ridge var(--button-border-c);
+        border-right: 0;
+    }
+    &:last-child {
+        border-top: 4px groove var(--button-border-c);
+        border-left: 0;
+        border-bottom: 4px ridge var(--button-border-c);
+        border-right: 4px ridge var(--button-border-c);
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    &:hover {
+        background-color: var(--button-hover-bgc);
+        border-color: var(--button-border-hover-c);
+    }
+    &:active {
+        background-color: var(--button-active-bgc);
+        border-color: var(--button-border-active-c);
+    }
 }

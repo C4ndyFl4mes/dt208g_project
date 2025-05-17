@@ -36,12 +36,28 @@ export class FrameworkComponent {
 
   lastSort = signal<Sorting | null>(null); // Används för att hålla reda på senaste sorteringen.
 
+  totalAmountOfPoints = signal<number>(0);
+
   constructor(private framework: FrameworkService) {
     const courses: Array<Course> = framework.loadStorage();
     this.courses.set(courses);
     this.coursesOnDisplay.set(courses);
+    this.totalAmountOfPoints.set(this.pointSum(this.coursesOnDisplay()));
     this.list.set(List.pagination(this.coursesOnDisplay(), this.itemsPerPage()));
     this.onPageChanged(1);
+  }
+
+  /**
+   * Räknar summan av poängen i ramschemat.
+   * @param courses - de kurser i ramschemat som ska räknas.
+   * @returns totala mängden poäng.
+   */
+  pointSum(courses: Array<Course>): number {
+    let sum = 0;
+    courses.forEach(course => {
+      sum += course.points;
+    });
+    return sum;
   }
 
   /**
@@ -50,6 +66,7 @@ export class FrameworkComponent {
    */
   removing(filtered: Array<Course>): void {
     this.coursesOnDisplay.set(filtered);
+    this.totalAmountOfPoints.set(this.pointSum(this.coursesOnDisplay()));
     this.list.set(List.pagination(this.coursesOnDisplay(), this.itemsPerPage()));
     this.onPageChanged(1);
 

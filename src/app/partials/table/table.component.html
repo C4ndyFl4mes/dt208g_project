@@ -86,12 +86,12 @@
                     <td> 
                         @if (framework.isSelected(item)) {
                             @if (parentPage() === "courses") {
-                                <button class="button selected" title="{{item.courseName}} är redan tillagd!">Tillagd</button>
+                                <button class="selection-button selected" title="{{item.courseName}} är redan tillagd!">Tillagd</button>
                             } @else {
-                                <button (click)="$event.stopPropagation(); remove(item)" class="button remove" title="Ta bort {{item.courseName}}">Ta bort</button>
+                                <button (click)="$event.stopPropagation(); remove(item)" class="selection-button remove" title="Ta bort {{item.courseName}}">Ta bort</button>
                             }
                         } @else {
-                            <button (click)="$event.stopPropagation(); framework.add(item)" class="button select" title="Lägg till {{item.courseName}}">Lägg till</button>
+                            <button (click)="$event.stopPropagation(); framework.add(item)" class="selection-button select" title="Lägg till {{item.courseName}}">Lägg till</button>
                         }
                     </td>
                 </tr>

@@ -12,7 +12,7 @@ export class DatalistComponent {
   @Input() startingValue!: string; // Startvärde.
   @Input() labelText!: string; // Label.
   @Input() readOnly!: boolean;
-
+  @Input() id!: string;
 
   @Output() value = new EventEmitter<string>(); // Output som används för att skicka till moderelementet.
 

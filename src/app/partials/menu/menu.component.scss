@@ -38,10 +38,10 @@ nav {
     li {
         height: 3rem;
         background-color: var(--menu-secondary-bgc);
-        border-left: 5px groove var(--menu-border-c);
-        border-top: 5px groove var(--menu-border-c);
-        border-bottom: 5px ridge var(--menu-border-c);
-        border-right: 5px ridge var(--menu-border-c);
+        border-left: 4px groove var(--menu-border-c);
+        border-top: 4px groove var(--menu-border-c);
+        border-bottom: 4px ridge var(--menu-border-c);
+        border-right: 4px ridge var(--menu-border-c);
         display: flex;
         flex-direction: column;
         transition: 0.3s;
@@ -82,7 +82,7 @@ li:has(.active) {
 
 .button {
     height: 2rem;
-    background-color: var(--menu-button-bgc);
+    background-color: var(--button-bgc);
     border-radius: 1rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
@@ -90,11 +90,11 @@ li:has(.active) {
 }
 
 .button:hover {
-    background-color: var(--menu-button-hover-bgc);
+    background-color: var(--button-hover-bgc);
 }
 
 .button:active {
-    background-color:  var(--menu-button-active-bgc);
+    background-color:  var(--button-active-bgc);
 }
 
 @media screen and (min-width: 500px) {

@@ -10,9 +10,9 @@ table {
         top: 0;
         padding-left: 1rem;
         padding-right: 1rem;
-        text-align: left;
+        text-align: center;
         
-        background-color: white;
+        background-color: var(--primary-bgc);
         cursor: pointer;
         user-select: none;
     }
@@ -42,7 +42,7 @@ th:nth-child(4), td:nth-child(4) {
 }
 
 th:nth-child(5), td:nth-child(5) {
-    width: 4rem;
+    width: 7rem;
 }
 
 .main-row {

@@ -4,45 +4,62 @@
 // Light Theme Variables:
 $li-primary-bgc: #ffffff;
 $li-primary-fgc: #222222;
-$li-secondary-bgc: rgba(186, 195, 197, 0.7);
-$li-table-container-bgc: #dfdfdf;
+$li-secondary-bgc: rgb(230, 230, 230);
+$li-table-container-bgc: #ffffff;
 $li-table-bgc: #eaeaea;
-$li-table-row-bgc: #dddddd;
-$li-table-row-hover-bgc: color.adjust($li-table-row-bgc, $lightness: -10%);
-$li-inputfield-bgc: #cccccc;
+$li-table-row-bgc: #ffffff;
+$li-table-row-hover-bgc: color.adjust($li-table-row-bgc, $lightness: -3%);
+$li-inputfield-bgc: #e6e1e1;
 $li-selected-item-datalist-bgc: color.adjust($li-inputfield-bgc, $lightness: -10%);
 
-$li-menu-primary-bgc: black;
-$li-menu-secondary-bgc: rgba(113, 225, 253, 0.7);
+$li-menu-primary-bgc: rgb(160, 160, 160);
+$li-menu-secondary-bgc: rgba(232, 239, 240, 0.8);
 $li-menu-hover-bgc: color.adjust($li-menu-secondary-bgc, $alpha: 0.09%);
-$li-menu-active-bgc: color.adjust($li-menu-secondary-bgc, $alpha: 0.2%);
+$li-menu-active-bgc: color.adjust($li-menu-secondary-bgc, $alpha: 0.1%);
 $li-menu-border-c: rgba(143, 143, 141, 0.2);
 
+// Buttons
 $li-menu-button-bgc: rgb(180, 180, 180);
 $li-menu-button-hover-bgc: color.adjust($li-menu-button-bgc, $lightness: -5%);
 $li-menu-button-active-bgc: color.adjust($li-menu-button-bgc, $lightness: -10%);
 
+$li-button-bgc: rgb(236, 232, 232);
+$li-button-hover-bgc: color.adjust($li-button-bgc, $lightness: -5%);
+$li-button-active-bgc: color.adjust($li-button-bgc, $lightness: -10%);
+
+$li-button-border-c: #e6e1e1;
+$li-button-border-hover-c: color.adjust($li-button-border-c, $lightness: -5%);
+$li-button-border-active-c: color.adjust($li-button-border-c, $lightness: -5%);
 
 // Dark Theme Variables:
-$da-primary-bgc: #ffffff;
-$da-primary-fgc: #222222;
-$da-secondary-bgc: #b4b5b6;
-$da-table-container-bgc: #dfdfdf;
-$da-table-bgc: #eaeaea;
-$da-table-row-bgc: #dddddd;
+$da-primary-bgc: #5e5e5e;
+$da-primary-fgc: #eeeeee;
+$da-secondary-bgc: #3a3a3a;
+$da-table-container-bgc: #5e5e5e;
+$da-table-bgc: #5e5e5e;
+$da-table-row-bgc: #5e5e5e;
 $da-table-row-hover-bgc: color.adjust($da-table-row-bgc, $lightness: -10%);
-$da-inputfield-bgc: #cccccc;
+$da-inputfield-bgc: #525252;
 $da-selected-item-datalist-bgc: color.adjust($da-inputfield-bgc, $lightness: -10%);
 
-$da-menu-primary-bgc: black;
-$da-menu-secondary-bgc: rgba(186, 195, 197, 0.7);
+$da-menu-primary-bgc: rgb(104, 104, 104);
+$da-menu-secondary-bgc: rgba(58, 58, 58, 0.7);
 $da-menu-hover-bgc: color.adjust($da-menu-secondary-bgc, $alpha: 0.09%);
-$da-menu-active-bgc: color.adjust($da-menu-secondary-bgc, $alpha: 0.2%);
+$da-menu-active-bgc: color.adjust($da-menu-secondary-bgc, $alpha: 0.3%);
 $da-menu-border-c: rgba(143, 143, 141, 0.2);
 
-$da-menu-button-bgc: rgb(180, 180, 180);
+// Buttons
+$da-menu-button-bgc: rgb(32, 32, 32);
 $da-menu-button-hover-bgc: color.adjust($da-menu-button-bgc, $lightness: -5%);
 $da-menu-button-active-bgc: color.adjust($da-menu-button-bgc, $lightness: -10%);
+
+$da-button-bgc: rgb(68, 68, 68);
+$da-button-hover-bgc: color.adjust($da-button-bgc, $lightness: -5%);
+$da-button-active-bgc: color.adjust($da-button-bgc, $lightness: -10%);
+
+$da-button-border-c: #4d4c4c;
+$da-button-border-hover-c: color.adjust($da-button-border-c, $lightness: -5%);
+$da-button-border-active-c: color.adjust($da-button-border-c, $lightness: -5%);
 
 // Shared values for themes, mostly placeholder as template.
 $base-theme: (
@@ -57,6 +74,7 @@ $light-theme: (
     table-container-bgc: $li-table-container-bgc,
     table-bgc: $li-table-bgc,
     table-row-bgc: $li-table-row-bgc,
+    table-row-hover-bgc: $li-table-row-hover-bgc,
     inputfield-bgc: $li-inputfield-bgc,
     selected-item-datalist-bgc: $li-selected-item-datalist-bgc,
     menu-primary-bgc: $li-menu-primary-bgc,
@@ -66,7 +84,13 @@ $light-theme: (
     menu-border-c: $li-menu-border-c,
     menu-button-bgc: $li-menu-button-bgc,
     menu-button-hover-bgc: $li-menu-button-hover-bgc,
-    menu-button-active-bgc: $li-menu-button-active-bgc
+    menu-button-active-bgc: $li-menu-button-active-bgc,
+    button-bgc: $li-button-bgc,
+    button-hover-bgc: $li-button-hover-bgc,
+    button-active-bgc: $li-button-active-bgc,
+    button-border-c: $li-button-border-c,
+    button-border-hover-c: $li-button-border-hover-c,
+    button-border-active-c: $li-button-border-active-c
 );
 
 // Dark theme
@@ -77,6 +101,7 @@ $dark-theme: (
     table-container-bgc: $da-table-container-bgc,
     table-bgc: $da-table-bgc,
     table-row-bgc: $da-table-row-bgc,
+     table-row-hover-bgc: $da-table-row-hover-bgc,
     inputfield-bgc: $da-inputfield-bgc,
     selected-item-datalist-bgc: $da-selected-item-datalist-bgc,
     menu-primary-bgc: $da-menu-primary-bgc,
@@ -86,7 +111,13 @@ $dark-theme: (
     menu-border-c: $da-menu-border-c,
     menu-button-bgc: $da-menu-button-bgc,
     menu-button-hover-bgc: $da-menu-button-hover-bgc,
-    menu-button-active-bgc: $da-menu-button-active-bgc
+    menu-button-active-bgc: $da-menu-button-active-bgc,
+    button-bgc: $da-button-bgc,
+    button-hover-bgc: $da-button-hover-bgc,
+    button-active-bgc: $da-button-active-bgc,
+    button-border-c: $da-button-border-c,
+    button-border-hover-c: $da-button-border-hover-c,
+    button-border-active-c: $da-button-border-active-c
 );
 
 // A function to merge base with light or dark theme.
