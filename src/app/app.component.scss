@@ -4,7 +4,10 @@
     display: flex;
     flex-direction: column;
 }
-
+h1 {
+    align-self: flex-start;
+    margin: 1rem;
+}
 header {
     position: relative;
     height: 5rem;
